@@ -5,14 +5,16 @@ import math
 
 #Find closest pair of points in a set of x,y,z coordinates
 #Generate random points based on n input and insert to list
-def generate_points(n):
+def generate_points(n, m):
+  #complexity O(n)
     points = []
     for i in range(n):
-        x = random.randint(0,100)
-        y = random.randint(0,100)
-        z = random.randint(0,100)
-        points.append([x,y,z])
+        temp = []
+        for j in range(m):
+            temp.append(random.randint(0,1000))
+        points.append(temp)
     return points
+
 
 n = int(input("Enter number of points: "))
 points = generate_points(n)
@@ -36,8 +38,13 @@ print(points)
 
 #Find distance between two points
 def distance(p1,p2):
-    return math.sqrt((p1[0]-p2[0])**2 + (p1[1]-p2[1])**2 + (p1[2]-p2[2])**2)
-
+  #complexity O(1)
+    global counterEuclidean
+    counterEuclidean+=1
+    result = float(0)
+    for i in range(len(p1)):
+        result += (p1[i]-p2[i])**2
+    return math.sqrt(result)
 #Find closest pair of points
 
 #color the closest pair of points and draw the line between them
