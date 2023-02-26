@@ -9,22 +9,22 @@ counterEuclidean = 0
 
 def generate_points(n, m):
   #complexity O(n)
-    points = []
-    for i in range(n):
-        temp = []
-        for j in range(m):
-            temp.append(random.randint(0,1000))
-        points.append(temp)
-    return points
+  points = []
+  for i in range(n):
+      temp = []
+      for j in range(m):
+          temp.append(random.randint(0,1000))
+      points.append(temp)
+  return points
 
 def distance(p1,p2):
   #complexity O(1)
-    global counterEuclidean
-    counterEuclidean+=1
-    result = float(0)
-    for i in range(len(p1)):
-        result += (p1[i]-p2[i])**2
-    return math.sqrt(result)
+  global counterEuclidean
+  counterEuclidean+=1
+  result = float(0)
+  for i in range(len(p1)):
+      result += (p1[i]-p2[i])**2
+  return math.sqrt(result)
 
 def closest_pair(points):
   #complexity O(nlogn)
@@ -52,8 +52,6 @@ def last_step(points):
     mid = int(len(points)//2) + 1
   left = points[:mid]
   right = points[mid:]
-  # print("left", left)
-  # print("right", right)
   p1, q1, d1 = closest_pair(left)
   p2, q2, d2 = closest_pair(right)
   if(d1 < d2):
@@ -76,74 +74,50 @@ def last_step(points):
 
 def visualize_closest_pair3(points):
   #complexity O(nlogn)
-    
-    p, q, d = closest_pair(points)
-    x = []
-    y = []
-    z = []  
-    for i in range(len(points)):
-      if(points[i] != p and points[i] != q):
-        x.append(points[i][0])
-        y.append(points[i][1])
-        z.append(points[i][2])
-    fig = plt.figure()
-    ax = fig.add_subplot(111, projection='3d')
-    ax.scatter(x,y,z)
-    ax.scatter(p[0],p[1],p[2], color='r')
-    ax.scatter(q[0],q[1],q[2], color='r')
-    ax.plot([p[0],q[0]],[p[1],q[1]],[p[2],q[2]], color='r')
-    plt.show()
+  p, q, d = closest_pair(points)
+  x = []
+  y = []
+  z = []  
+  for i in range(len(points)):
+    if(points[i] != p and points[i] != q):
+      x.append(points[i][0])
+      y.append(points[i][1])
+      z.append(points[i][2])
+  fig = plt.figure()
+  ax = fig.add_subplot(111, projection='3d')
+  ax.scatter(x,y,z)
+  ax.scatter(p[0],p[1],p[2], color='r')
+  ax.scatter(q[0],q[1],q[2], color='r')
+  ax.plot([p[0],q[0]],[p[1],q[1]],[p[2],q[2]], color='r')
+  plt.show()
 
 def visualize_closest_pair2(points):
-    p, q, d = closest_pair(points)
-    x = []
-    y = []
-    for i in range(len(points)):
-        if (points[i] != p and points[i] != q):
-            x.append(points[i][0])
-            y.append(points[i][1])
-    fig = plt.figure()
-    plt.scatter(x,y, c='b', )
-    plt.scatter(p[0],p[1], color='r')
-    plt.scatter(q[0],q[1], color='r')
-    plt.plot([p[0],q[0]],[p[1],q[1]], color='r')
-    plt.show()
-
+  p, q, d = closest_pair(points)
+  x = []
+  y = []
+  for i in range(len(points)):
+      if (points[i] != p and points[i] != q):
+          x.append(points[i][0])
+          y.append(points[i][1])
+  fig = plt.figure()
+  plt.scatter(x,y, c='b', )
+  plt.scatter(p[0],p[1], color='r')
+  plt.scatter(q[0],q[1], color='r')
+  plt.plot([p[0],q[0]],[p[1],q[1]], color='r')
+  plt.show()
 
 def visualize_closest_pair1(points):
-    p, q, d = closest_pair(points)
-    x = []
-    y = [0] * len(x)
-    for i in range(len(points)):
-        if (points[i] != p and points[i] != q):
-            x.append(points[i][0])
-    fig = plt.figure()
-    plt.scatter(x, y, c='b', marker='o')
-    plt.scatter(p[0], 0, color='r')
-    plt.scatter(q[0], 0, color='r')
-    plt.plot([p[0]],[q[0]], 0, 0, color='r')
-    plt.show()
-    
-
-def visualize_closest_pair_bf(points):
-  #complexity O(n^2)
-    p1, q1, d1 = closest_pair_bf(points)
-    last_step(points, p1, q1, d1)
-    x = []
-    y = []
-    z = []
-    for i in range(len(points)):
-      if(points[i] != p and points[i] != q):
-        x.append(points[i][0])
-        y.append(points[i][1])
-        z.append(points[i][2])
-    fig = plt.figure()
-    ax = fig.add_subplot(111, projection='1d')
-    ax.scatter(x,y,z).set_color('blue')
-    ax.scatter(p[0],p[1],p[2]).set_color('red')
-    ax.scatter(q[0],q[1],q[2]).set_color('red')
-    ax.plot([p[0],q[0]],[p[1],q[1]],[p[2],q[2]]).set_color('red')  
-    plt.show()
+  p, q, d = closest_pair(points)
+  x = []
+  for i in range(len(points)):
+      if (points[i] != p and points[i] != q):
+          x.append(points[i][0])
+  fig = plt.figure()
+  plt.scatter(x,[0]*len(x), c='b')
+  plt.scatter(p[0],0, color='r')
+  plt.scatter(q[0],0, color='r')
+  plt.plot([p[0],q[0]],[0,0], color='r')
+  plt.show()
 
 def closest_pair_bf(points):
   #complexity O(n^2)
@@ -203,4 +177,4 @@ if(answer == 'yay'):
     else:
         print("Maaf, visualisasi hanya tersedia untuk 1, 2, dan 3 dimensi")
 else:
-  print("Thank you for using our program!")
+  print("Terima kasih telah menggunakan program kami!")
