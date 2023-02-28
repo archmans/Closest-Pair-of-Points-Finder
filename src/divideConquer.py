@@ -37,9 +37,9 @@ def closest_pair(points):
     else:
       return points[1], points[2], d3
   else:
-    return es_strip(points)
+    return s_strip(points)
 
-def es_strip(points):
+def s_strip(points):
   #complexity O(nlogn)
   points.sort(key = lambda x: x[0])
   if(len(points) % 2 == 0):

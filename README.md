@@ -28,7 +28,7 @@
 * [Acknowledgements](#acknowledgements)
 
 ## Deskripsi Singkat 
-Pada tugas kecil 2 strategi algoritma, mahasiswa diminta membuat sebuah program untuk melakukan pencarian dua pasangan titik terdekat menggunakan algoritma divide and conquer.
+Pada tugas kecil 2 strategi algoritma, mahasiswa diminta membuat sebuah program untuk melakukan pencarian dua pasangan titik terdekat menggunakan algoritma divide and conquer. Divide and conquer adalah strategi algoritma dalam pemrograman yang memecahkan masalah besar menjadi submasalah yang lebih kecil, kemudian menyelesaikan masing-masing submasalah secara terpisah, dan akhirnya menggabungkan solusi submasalah untuk mendapatkan solusi akhir yang lengkap. Strategi ini sering digunakan dalam algoritma pemrograman untuk meningkatkan kecepatan dan efisiensi pemrosesan data yang besar dan kompleks. Dengan memecah masalah menjadi submasalah yang lebih kecil, program dapat mengeksekusi tugas secara paralel, mempercepat waktu pemrosesan, dan mengoptimalkan penggunaan sumber daya komputer.
 
 ## Struktur File
 ```bash
