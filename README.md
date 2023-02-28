@@ -1,5 +1,5 @@
 # TUGAS KECIL 2 STRATEGI ALGORITMA - IF2211
-> Tugas Kecil 2 : Mencari Pasangan Titik Terdekat 3D dengan Algoritma Divide and Conquer
+> Mencari Pasangan Titik Terdekat 3D dengan Algoritma Divide and Conquer
 
 ## Author
 <table>
@@ -32,15 +32,23 @@ Pada tugas kecil 2 strategi algoritma, mahasiswa diminta membuat sebuah program 
 
 ## Struktur File
 ```bash
-
+Tucil2_13521010_13521014                      
+├─ doc                                  
+│  └─ Tucil2-Stima-2023.pdf             
+├─ src                                                           
+│  ├─ bruteForce.py                     
+│  ├─ divideConquer.py                  
+│  ├─ main.py                           
+│  └─ visualize.py                      
+└─ README.md                            
  ```
 ## Requirements
 1. Python
 2. Matplotlib
 
 ## Cara Menjalankan Program
-1. Clone repository ini
-2. 
+1. Clone repository
+2. Buka folder src di terminal lalu ketik 'py main.py' 
 
 ## Acknowledgements
 - Tuhan Yang Maha Esa
