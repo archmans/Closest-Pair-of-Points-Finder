@@ -1,9 +1,6 @@
 import matplotlib.pyplot as plt
 import random
 import math
-import platform
-import time
-import os
 counterEuclidean = 0
 
 def generate_points(n, m):
@@ -40,9 +37,9 @@ def closest_pair(points):
     else:
       return points[1], points[2], d3
   else:
-    return last_step(points)
+    return es_strip(points)
 
-def last_step(points):
+def es_strip(points):
   #complexity O(nlogn)
   points.sort(key = lambda x: x[0])
   if(len(points) % 2 == 0):
@@ -71,109 +68,7 @@ def last_step(points):
             q = points[j]
   return p, q, d  
 
-def visualize_closest_pair3(points):
-  #complexity O(nlogn)
-  p, q, d = closest_pair(points)
-  x = []
-  y = []
-  z = []  
-  for i in range(len(points)):
-    if(points[i] != p and points[i] != q):
-      x.append(points[i][0])
-      y.append(points[i][1])
-      z.append(points[i][2])
-  fig = plt.figure()
-  ax = fig.add_subplot(111, projection='3d')
-  ax.scatter(x,y,z)
-  ax.scatter(p[0],p[1],p[2], color='r')
-  ax.scatter(q[0],q[1],q[2], color='r')
-  ax.plot([p[0],q[0]],[p[1],q[1]],[p[2],q[2]], color='r')
-  plt.show()
 
-def visualize_closest_pair2(points):
-  p, q, d = closest_pair(points)
-  x = []
-  y = []
-  for i in range(len(points)):
-      if (points[i] != p and points[i] != q):
-          x.append(points[i][0])
-          y.append(points[i][1])
-  fig = plt.figure()
-  plt.scatter(x,y, c='b', )
-  plt.scatter(p[0],p[1], color='r')
-  plt.scatter(q[0],q[1], color='r')
-  plt.plot([p[0],q[0]],[p[1],q[1]], color='r')
-  plt.show()
 
-def visualize_closest_pair1(points):
-  p, q, d = closest_pair(points)
-  x = []
-  for i in range(len(points)):
-      if (points[i] != p and points[i] != q):
-          x.append(points[i][0])
-  fig = plt.figure()
-  plt.scatter(x,[0]*len(x), c='b')
-  plt.scatter(p[0],0, color='r')
-  plt.scatter(q[0],0, color='r')
-  plt.plot([p[0],q[0]],[0,0], color='r')
-  plt.show()
 
-def closest_pair_bf(points):
-  #complexity O(n^2)
-  # brute force
-  d = distance(points[0], points[1])
-  p = points[0]
-  q = points[1]
-  for i in range(len(points)):
-    for j in range(i+1, len(points)):
-      if(distance(points[i], points[j]) < d):
-        d = distance(points[i], points[j])
-        p = points[i]
-        q = points[j]
-  return p, q, d
 
-n = int(input("Masukkan jumlah titik: "))
-m = int(input("Masukkan jumlah dimensi: "))
-while(n < 2):
-    n = int(input("Masukkan jumlah titik: "))
-    m = int(input("Masukkan jumlah dimensi: "))
-
-points = generate_points(n, m)    
-os.system('cls' if os.name == 'nt' else 'clear')
-print("============================================================")
-print("                 Divide & Conquer Algorithm                 ")
-print("============================================================")
-startTime1 = time.time()
-p, q, d = closest_pair(points)
-endTime1 = time.time()
-totalTime1 = (endTime1 - startTime1)*1000
-print("Waktu eksekusi divide and conquer: ", totalTime1, "ms")
-print("Jumlah operasi euclidean: ", counterEuclidean)
-print("Jarak terdekat: ", d)
-print("Platform: ", platform.processor())
-print("===========================================================")
-print("                   Brute Force Algorithm                   ")
-print("===========================================================")
-
-startTime2 = time.time()
-p1, q1, d1 = closest_pair_bf(points)
-endTime2 = time.time()
-totalTime2 = (endTime2 - startTime2)*1000
-print("Waktu eksekusi brute force: ", totalTime2, "ms")
-print("Jumlah operasi euclidean brute force: ", counterEuclidean)
-print("Platform: ", platform.processor())
-print("Jarak terdekat: ", d1)
-print("============================================================")
-print("Apakah anda yakin ingin melihat visualisasi? (yay/nay)")
-answer = input()
-if(answer == 'yay'):
-    if m == 1:
-        visualize_closest_pair1(points)
-    elif m == 2:
-        visualize_closest_pair2(points)
-    elif m == 3:
-        visualize_closest_pair3(points)
-    else:
-        print("Maaf, visualisasi hanya tersedia untuk 1, 2, dan 3 dimensi")
-else:
-  print("Terima kasih telah menggunakan program kami!")
