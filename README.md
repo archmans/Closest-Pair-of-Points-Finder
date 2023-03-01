@@ -32,15 +32,17 @@ Pada tugas kecil 2 strategi algoritma, mahasiswa diminta membuat sebuah program 
 
 ## Struktur File
 ```bash
-Tucil2_13521010_13521014                      
+Tucil2_13521010_13521014                        
 ├─ doc                                  
-│  └─ Tucil2-Stima-2023.pdf             
-├─ src                                                           
+│  ├─ Tucil2-Stima-2023.pdf             
+│  └─ Tucil2_13521010_13521014.pdf      
+├─ src                                       
 │  ├─ bruteForce.py                     
 │  ├─ divideConquer.py                  
 │  ├─ main.py                           
 │  └─ visualize.py                      
 └─ README.md                            
+                          
  ```
 ## Requirements
 1. Python
@@ -48,7 +50,7 @@ Tucil2_13521010_13521014
 
 ## Cara Menjalankan Program
 1. Clone repository
-2. Buka folder src di terminal lalu ketik 'py main.py' 
+2. Buka folder src di terminal lalu ketik `py "main.py"` 
 
 ## Acknowledgements
 - Tuhan Yang Maha Esa
